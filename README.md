@@ -3,7 +3,7 @@
 
 An Instagram like web application allowing you to make basic photo editing using your webcam and some predefined images. Project part of the web branch at 42 school. No libraries were allowed (both in front and back).
 
-## Goal
+## ✅ Goal
 
 The goal of this project was to have practice with:
 
@@ -16,7 +16,7 @@ The goal of this project was to have practice with:
  * MYSQL with PDO
  * Firefox and Chrome support
 
-## Tech stack
+## ✅ Tech stack!
 
 * Frontend:
     * HTML
@@ -64,8 +64,9 @@ The goal of this project was to have practice with:
 
   * Instant search in the navigation. You can search user by name or tags by #tag.
 </details>
-
+<br>
 ## 🚀 Getting started
+<br>
 
 * You will need to have a local webserver on your machine, for example install [mamp](https://bitnami.com/stack/mamp)
 * Then you can clone this repo in your mamp/apache2/htdocs directory for MAMP server.
