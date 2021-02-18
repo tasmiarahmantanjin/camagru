@@ -41,9 +41,10 @@
 		  // Firefox currently has a bug where the height can't be read from
 		  // the video, so we will make assumptions if this happens.
 		
+		  /*
 		  if (isNaN(height)) {
 			height = width / (4/3);
-		  }
+		  } */
 
 		  video.setAttribute('width', width);
 		  video.setAttribute('height', height);
@@ -87,7 +88,11 @@
 		context.drawImage(video, 0, 0, width, height);
 	  
 		var data = canvas.toDataURL('image/png');
+		// console.log(height);
 		photo.setAttribute('src', data);
+
+		// new addition by myself to get the id=cpt_1 data from DOM
+		document.getElementById('cpt_1').value = data;
 	  } else {
 		clearphoto();
 	  }
