@@ -1,15 +1,66 @@
 <?php
 	// echo 'Hello Tasmia';
+	include '../config/db_connection.php';
 	include '../lib/includes.php';
+
+	session_start();
+	$user_id = $_SESSION['user']['user_id'];
+
+	function imagecopymerge_alpha($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h, $pct)
+		{
+			// function patch for respecting alpha work find on http://php.net/manual/en/function.imagecopymerge.php
+			$cut = imagecreatetruecolor($src_w, $src_h);
+			imagecopy($cut, $dst_im, 0, 0, $dst_x, $dst_y, $src_w, $src_h);
+			imagecopy($cut, $src_im, 0, 0, $src_x, $src_y, $src_w, $src_h);
+			imagecopymerge($dst_im, $cut, $dst_x, $dst_y, 0, 0, $src_w, $src_h, $pct);
+		}
+
+
+
+	if (isset($_POST['cpt_1']) && $_POST['cpt_1'] != "" && isset($_POST['alpha'])) {
+		$username = $_SESSION['user']['username'];
+
+		// get the content of the captured image from the webcam put it in a tmp img
+		list($type, $data) = explode(';', $_POST['cpt_1']);
+		list(, $data) = explode(',', $data);
+		$data = base64_decode($data);
+		file_put_contents(IMAGES . '/tmp1.png', $data);
+
+		// create image from this temporary 
+		$im = imagecreatefrompng(IMAGES . '/tmp1.png');
+
+		// get selected alpha
+		$alpha = imagecreatefrompng(IMAGES . '/alpha/' . $_POST['alpha'] . '.png');
+
+		//$image = merge(IMAGES . '/tmp1.png', IMAGES . '/alpha/' . $_POST['alpha'] . '.png', $username);
+		// imagecopymerge_alpha($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h, $pct)
+		imagecopymerge_alpha($im, $alpha, 0, 0, 0, 0, imagesx($alpha), imagesy($alpha), 100);
+
+		$num = rand(10, 10000);
+		$image_name = $num . '_' . $username . '.png';
+		imagepng($im,  IMAGES . '/' . $image_name);
+		imagedestroy($im);
+
+		$like_count = 0;
+		$sql = "INSERT INTO images (username, user_id, image, like_count) VALUES ('$username', $user_id, '$image_name', '$like_count')";
+		$stmt= $con->prepare($sql);
+		$stmt->execute();
+		header('Location: '.$_SERVER['PHP_SELF']);
+		die;
+	}
+	
+		//TODO Need to make sure the picture will pop up to the welcome page after click submit
+		//TODO: Need to connect with DATABASE
 
 
 ?>
+
 
 <!-- 
 if ($_SESSION['user'] != NULL) { 
 
 
-
+	
 
 
 
@@ -54,14 +105,13 @@ else{
 						</div>
 					</div>
 
-<h1>Hello Test</h1>
 
 					<div class="row" style="margin-top: 1vw">
 						<div class="col col-md-6 text-center">
 							<input class="btn btn-dark" type="file" name="image" id="image" accept=".jpg, .png, .jpeg"/>
 						</div>
 					</div>
-<h1>Hello Test</h1>
+
 					<div class="row" style="margin: 1vw">
 						<div class="col-md-12 text-center">
 							<input class="checkbox-tools" type="hidden" name="alpha" value="blank" id="tool-0" checked>
