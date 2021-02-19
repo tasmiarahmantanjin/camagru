@@ -78,7 +78,7 @@ if (isset($_FILES['image']) && isset($_POST['alpha'])) {
 		$image = $image_name;
 		$like_count = 0;
 
-		// sql request
+		// sql query 
 		$sql = "INSERT INTO images (username, user_id, image, like_count) VALUES ('$username', $user_id, '$image', '$like_count')";
 		$stmt= $pdo->prepare($sql);
 		$stmt->execute();
@@ -185,8 +185,6 @@ if ($_SESSION['user'] != NULL) { ?>
 						</div>
 					</div>
 
-<h1>Hello Test</h1>
-
 <!-- Submit Button -->
 
 					<div class="row">
@@ -202,6 +200,7 @@ if ($_SESSION['user'] != NULL) { ?>
 				<div class="row">
 					<?php foreach ($images as $image) : ?>
 						<div class="col col-md-3 col-xs-6">
+							
 							<?php
 							if ($_SESSION['user']['user_id'] === $image['user_id']) : ?>
 								<img src="<?php echo '../img/' . $image['image'] ?>" width="150px" alt="">
@@ -214,7 +213,7 @@ if ($_SESSION['user'] != NULL) { ?>
 			</div>
 		</div>
 
-		<?php include '../includes//footer.php'; ?>
+		<?php include '../includes/footer.php'; ?>
 	</body>
  </html>
  <?php
