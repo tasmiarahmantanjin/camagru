@@ -18,7 +18,8 @@ function imagecopymerge_alpha($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, 
 
 echo "Hello BUG?????";
 
-// 2nd Part
+// 2nd Part to save the photo is taken with webcam
+
 	if (isset($_POST['cpt_1']) && $_POST['cpt_1'] != "" && isset($_POST['alpha'])) {
 		$username = $_SESSION['user']['username'];
 
