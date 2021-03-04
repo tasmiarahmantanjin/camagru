@@ -1,0 +1,43 @@
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.pagination {
+  display: inline-flex;
+  padding-left: 0;
+  border-radius: 4px;
+}
+
+.pagination a {
+  background: rgba(0, 0, 0, 0.4);
+  margin-left: 50%;
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid #ddd;
+}
+
+.pagination a.active {
+  background-color: #4caf50;
+  color: white;
+  border: 1px solid #4caf50;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
