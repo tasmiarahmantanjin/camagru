@@ -9,6 +9,7 @@ include 'config/db_connection.php';
 // Set time zone
 date_default_timezone_set('Europe/Helsinki');
 
+// Prepare the SQL query to display all the posted image
 $results = $pdo->prepare("SELECT users.username, images.image FROM users JOIN images ON images.user_id = users.user_id ORDER BY id DESC");
 $results->execute();
 $images = $results->fetchAll();
@@ -17,28 +18,43 @@ $images = $results->fetchAll();
 <!doctype html>
 <html lang="en">
 	<head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css"> -->
-	<!-- CSS styles -->
-	<style type="text/css">
-		body{ font: 14px sans-serif; }
-		.wrapper{ width: 350px; padding: 20px; }
-	</style>
-	<title>Sign In</title>
+	<!-- Bootstrap & CSS Link -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="../gallery/gallery.css">
+	<title>Index Page</title>
 	</head>
-<!-- include header & footer -->
+
 	<body>
 	<?php require 'navbar.php' ?>
 
-	<h2>Hello Welcome to my Awesome Website</h2>
+	<div class="row" style="margin: .5vw">
 
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+		<?php foreach($images as $image){ ?>
+			<!-- <div class="col-lg-3 col-xs-6 col-md-3 text-center" > -->
+			<div class="col-lg-3 col-xs-10 col-md-4">
+				<div class="card h-100 bg-secondary text-white image-card">
+					<div class="card-header text-center">
+						<p class="card-title">Post Owner: <a href="#" class="text-white "><?php echo $image['username'];?></a></p>
+					</div>
+
+					<div class="card-img-bottom">
+						<?php if ($_SESSION['user'] != NULL) { ?>
+							<a href="like.php?imageid=<?php echo $image['id'];?>">
+								<img src="<?php echo '../img/'. $image['image']; ?>"/>
+							</a>
+							</br>
+						<?php }
+
+						else { ?>
+							<img src="<?php echo 'img/'. $image['image']; ?>"/>
+						<?php } ?> 
+					</div>
+				
+				</div>
+			</div>
+		<?php } ?>
+	</div>
 	</body>
+
 	<?php require 'includes/footer.php' ?>
 </html>
