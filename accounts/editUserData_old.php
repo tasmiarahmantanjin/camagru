@@ -3,8 +3,6 @@ session_start();
 include 'editUserDataValidation.php';
 require_once '../config/db_connection.php';
 
-// include('updateInfoValidation.php');
-// require_once 'dbConnectionNew.php';
 if ($_SESSION['user'] != NULL)
 {
 $errors = [];
@@ -18,7 +16,6 @@ $rows = $stmt->fetchAll();
 
 foreach($rows as $row)
 {
-	// $dbname = $row['name'];
 	$gusername = $row['username'];
 	$gemail = $row['email'];
 	$notificationEmail = $row['notificationEmail'];
@@ -41,7 +38,6 @@ if ($pdo)
 			{
 				if ($gpass == $opasswd)
 				{
-					// include 'dbConnectionNew.php';
 					require_once '../config/db_connection.php';
 
 					$query = "UPDATE `users` SET username=?, email=?, notificationEmail=? WHERE username=?";
