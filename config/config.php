@@ -1,8 +1,8 @@
 <?php
 /* Database credentials. MySQL server with default setting (user 'root' with '123456' password) */
 
-$DB_DSN = "mysql:dbname=demo;host=127.0.0.1"; // for test purpose i used in demo database
-// $DB_DSN = "mysql:dbname=camagru;host=127.0.0.1"; // for test purpose i used in demo database
+// $DB_DSN = "mysql:dbname=demo;host=127.0.0.1"; // for test purpose i used in demo database
+$DB_DSN = "mysql:dbname=camagru;host=127.0.0.1"; // for test purpose i used in demo database
 $DB_USER = "root";
 $DB_PASSWORD = "123456";
 $DB_DSN_NO_DB = "mysql:host=127.0.0.1";

@@ -101,7 +101,7 @@ try
 {
 	$dbh = new PDO("mysql:host=$DB_DSN;dbname=$DB_NAME", $DB_USER, $DB_PASSWORD);
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$sql = "CREATE TABLE IF NOT EXISTS  `tbl_comment` (
+	$sql = "CREATE TABLE IF NOT EXISTS  `comments` (
 			`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 			`user_id` int (11) NOT NULL,
 			`comment` varchar(100) NOT NULL,
