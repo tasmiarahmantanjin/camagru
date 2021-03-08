@@ -57,6 +57,7 @@ The goal of this project was to have practice with:
 
 </details>
 <br>
+
 ### 🚀 Getting started
 <br>
 
