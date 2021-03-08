@@ -51,11 +51,6 @@ The goal of this project was to have practice with:
   * Create custom images using webcam or images downloaded from computer combined with filters.
 </details>
 
-<details>
-  <summary>Other features</summary> 
-  <br>
-
-</details>
 <br>
 
 ## 🚀 Getting started
