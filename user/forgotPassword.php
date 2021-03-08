@@ -1,11 +1,7 @@
 <?php
-// echo 'Test if the resetPassword function works or not';
-// include('../admin/resetPassword.php');
 include('../admin/resetPasswordEmail.php');
 
-
 ?>
-
 <!-- HTML & CSS & BOOTSTRAP HERE -->
 <!DOCTYPE html>
 <html>
@@ -46,13 +42,10 @@ include('../admin/resetPasswordEmail.php');
                     <div class="input-group">
                       <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
                       <input id="email" name="email" placeholder="email address" class="form-control" type="email">
-                      <!-- <input id="femail" name="femail" placeholder="email address" class="form-control" type="email"> -->
-
                     </div>
                   </div>
 <!-- FIELD FOF SUBMIT BUTTON -->
                   <div class="form-group">
-                    <!-- <input name="resetPass" class="btn btn-lg btn-primary btn-block" value="Send Login Link" type="submit"> -->
                     <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Send Login Link" type="submit">
                   </div>
                 <!-- PHP CODE -->
@@ -85,18 +78,12 @@ include('../admin/resetPasswordEmail.php');
 								<?php
 							}
 							?>
-
-
                   <p><strong>OR</strong></p>
                   <div class="col-md-14 text-left">
-									<!-- <a href="register.php" class="text-dark">Register here</a> -->
-                  <!-- Need to fix the register.php file path -->
 									<a href="register.php" class="btn btn-light btn-block">Create New Account</a>
 								</div>
-
                   <input type="hidden" class="hide" name="token" id="token" value="">
                 </form>
-
               </div>
             </div>
           </div>

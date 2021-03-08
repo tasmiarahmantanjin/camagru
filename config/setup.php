@@ -9,7 +9,6 @@ try
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$sqlQuery = "CREATE DATABASE IF NOT EXISTS camagru";
 	$pdo->exec($sqlQuery);
-	//echo "Database has been created";
 }
 catch(PDOException $e)
 {
@@ -29,12 +28,10 @@ try
 		`verified` tinyint(1) NOT NULL DEFAULT '0',
 		`token` varchar(255) DEFAULT NULL,
 		`password` varchar(255) NOT NULL,
-		-- `recieveCommEmail` varchar(255) NOT NULL DEFAULT '0',
 		`notificationEmail` varchar(255) NOT NULL DEFAULT '0',
 		PRIMARY KEY (`user_id`)
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8";
 		$pdo->exec($sqlQuery);
-//echo "Congratulation! Your account has been created.";
 }
 catch(PDOException $e)
 {
@@ -53,7 +50,6 @@ try
 		PRIMARY KEY (`id`)
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8";
 	$pdo->exec($sqlQuery);
-//echo "Congratulation! Your account has been created.";
 }
 catch(PDOException $e)
 {
@@ -96,7 +92,6 @@ catch (PDOException $e)
 	echo "ERROR CREATING likes TABLE: " . $e->getMessage() . "Aborting process<br>";
 }
 
-// 'Table_comment' table creation
 try
 {
 	$dbh = new PDO("mysql:host=$DB_DSN;dbname=$DB_NAME", $DB_USER, $DB_PASSWORD);

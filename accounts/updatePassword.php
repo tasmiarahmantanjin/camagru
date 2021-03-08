@@ -47,18 +47,14 @@ if ($_SESSION['user'] != NULL)
 					if (passwordValidation($newPassword, $confirmPassword))
 					{
 						$new_password = hash('sha256', $newPassword);
-						// $query = "UPDATE `users` SET password='$new_Password' WHERE username=?"; // Working version
-						$query = "UPDATE `users` SET password='$new_password' WHERE username=?"; // Final working version
+						$query = "UPDATE `users` SET password='$new_password' WHERE username=?";
 						$stmt = $pdo->prepare($query);
 						$stmt->execute([$dbUsername]);
-						// echo 'Test the db connection';
 						// print_r($stmt);
-						// $results = $stmt->execute([$new_password, $email]);
 						if ($stmt)
 						{
 							array_push($messages, "Your password has been updated successfully");
 							$_SESSION['message'] = "Your password has been updated successfully";
-							// header("Refresh: 5; url=../index.php");
 							header("Refresh: 5; url=../user/welcome.php");
 						}
 					}
@@ -106,11 +102,9 @@ if ($_SESSION['user'] != NULL)
 							</div>
 							<!-- CANCEL FIELD -->
 							<div class="col-md-6 text-right">
-								<!-- <a href="../index.php" class="text-info"><h5>Login</h5></a> -->
 								<a class="btn btn-light" href="../user/welcome.php">Cancel</a>
 							</div>
 						</div>
-						<!-- php code for array $error count more than 0 -->
 						<?php if (count($errors) > 0) {
 						?>
 							<div class="form-group" style="color: red">

@@ -12,12 +12,8 @@ if ($_POST['submit'] == "Submit")
 	{
 		$token = $_GET['token'];
 		require_once '../config/db_connection.php';
-		echo 'TEST 2' . '<br>';
 
 		if ($pdo){
-			// to make sure set_pass is not the old password
-			// $old_password = $_GET['old_password'];
-			// if ($old_password = $npass){array_push($error, password you entered is already exists)}
 			$nPass = $_POST['new_password'];
 			$cPass = $_POST['confirm_password'];
 
@@ -87,7 +83,6 @@ if ($_POST['submit'] == "Submit")
 								</div>
 <!-- CANCEL FIELD -->
 								<div class="col-md-6 text-right">
-									<!-- <a href="../index.php" class="text-info"><h5>Login</h5></a> -->
 									<a class="btn btn-light" href="../index.php">Cancel</a>
 								</div>
 							</div>
