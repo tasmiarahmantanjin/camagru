@@ -1,6 +1,6 @@
 <?php
 
-// Function for 'user registration verification' with email
+// Function for user registration verification
 function sendSignUpVerificationEmail($email, $token)
 {
     $body = '
@@ -22,7 +22,7 @@ function sendSignUpVerificationEmail($email, $token)
     }
 }
 
-// Function for 'reset Password/forgot Password' with email
+// Function for reset Password/forgot Password
 function sendResetMail($userEmail, $token)
 {
     $body = '
@@ -37,18 +37,19 @@ function sendResetMail($userEmail, $token)
     }
 }
 
-// Function for 'notify comment' with email
-// function commentEmail($userEmail, $imageId)
-// {
-//     $body = '
-//         Someone commented on your photo:.
-//       <a href="http://localhost:8080/my_camagru/controller/likes.php?imageid=' . $imageId . '"> Click me </a>';
-//     $headers = "From: Admin\r\n";
-//     if (mail($userEmail, "Comment on your photo", $body, $headers)) {
-//         echo "Email on comment";
-//     } else {
-//         echo "Message Error";
-//     }
-// }
+// Function for sending with email notification for every comments
+
+function commentEmail($userEmail, $imageId)
+{
+    $body = '
+        Someone commented on your photo:.
+      <a href="http://localhost:8080/my_camagru/gallery/like.php?imageid=' . $imageId . '"> Click the link to see... </a>';
+    $headers = "From: Admin\r\n";
+    if (mail($userEmail, "Someone commented on your photo", $body, $headers)) {
+        echo "Email on comment";
+    } else {
+        echo "Message Error";
+    }
+}
 
 ?>
