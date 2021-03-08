@@ -44,12 +44,10 @@ if ($_SESSION != NULL)
 ?>
 
 <!-- HTML CODE STARTS HERE -->
-
 	<!DOCTYPE html>
 	<html>
 	<head>
 		<title>Gallery</title>
-		<!-- Bootstrap & CSS file link -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 		<link rel="stylesheet" href="gallery.css">
 	</head>
@@ -59,17 +57,15 @@ if ($_SESSION != NULL)
 				<div class="row" style="margin: 1vw;">
 					<?php foreach($images as $image)
 					{ ?>
-						<div class="col-lg-3 col-xs-10 col-md-4">
-						<!-- <div class="col px-md-1 px-lg-3 mb-4"> -->
-						
-							<div class="card h-100 bg-secondary text-white image-card">
+						<div class="col-lg-3 col-xs-10 col-md-4" style="padding: 10px">
+							<div class="card h-100 bg-dark text-white image-card">
 								<!-- Display username of the post owner -->
 								<div class="card-header text-center">
-									<p class="card-title"><a href="#" class="text-white "><?php echo $image['username'];?></a></p>
+									<p class="card-title">Post Owner: <a href="#" class="text-white "><?php echo $image['username'];?></a></p>
 								</div>
 
 								<!-- Display Image -->
-								<div style="margin: .2vw" class="card-img-bottom" >
+								<div style="margin: .2vw">
 									<?php if ($_SESSION['user'] != NULL){ ?>
 										<a href="like.php?imageid=<?php echo $image['id'];?>">
 											<img class="img-responsive" src="<?php echo '../img/'. $image['image']; ?>" margin="auto" />
@@ -98,7 +94,7 @@ if ($_SESSION != NULL)
 
 				<!-- Pagination Section -->
 				<div class="row">
-					<div class="col" style="margin-left: 48%;">
+					<div class="col" >
 							<?php
 								if ($page < $number_of_pages && $page > 1) {
 									echo '<div class="pagination">
