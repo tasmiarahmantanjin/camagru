@@ -52,7 +52,7 @@ The goal of this project was to have practice with:
 </details>
 
 <details>
-  <summary>Other features</summary>
+  <summary>Other features</summary> 
   <br>
 
 </details>
