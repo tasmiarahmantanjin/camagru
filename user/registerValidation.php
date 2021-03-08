@@ -89,8 +89,6 @@ if ($data['fullname'] != "" && $data['username'] != "" && $data['email'] != "" &
 		}
 	}
 	
-
-
 	// password & confirm_password validation
 	if ($data["password"] != $data["confirm_password"])
 	{

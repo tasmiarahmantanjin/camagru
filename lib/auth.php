@@ -1,7 +1,8 @@
 <?php 
 session_start();
 
-if(!isset($_SESSION['csrf'])){
+if(!isset($_SESSION['csrf']))
+{
 	$_SESSION['csrf'] = md5(time() + rand());
 }
 

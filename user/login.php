@@ -32,8 +32,8 @@ if (isset($_POST['submit']))
 					'user_id' => $user['user_id']
 				);
 				$_SESSION['user'] = $user;
-				header('location: welcome.php');
-				// echo 'Hello TEST';
+				// header('location: welcome.php');
+				header('location: ../gallery/gallery.php');
 				// print_r($_SESSION['user']) ;
 				die();
 			}
