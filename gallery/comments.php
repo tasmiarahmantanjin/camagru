@@ -5,7 +5,7 @@ session_start();
 
 function ft_image_owner_email($pdo, $imageid)
 {
-	$query = "SELECT users.email AS email FROM `users` JOIN images ON images.user_id = users.user_id JOIN tbl_comment ON images.id = tbl_comment.image_id WHERE images.id = ? LIMIT 1";
+	$query = "SELECT users.email AS email FROM `users` JOIN images ON images.user_id = users.user_id JOIN comments ON images.id = comments.image_id WHERE images.id = ? LIMIT 1";
 	$stmt = $pdo->prepare($query);
 	$stmt->execute([$imageid]);
 	$results = $stmt->fetchAll();
@@ -22,7 +22,7 @@ if ($_POST['submit'] == "Comment")
 	$user = $_SESSION['user']['user_id'];
 	$text = $_POST['comm'];
 	$imageid = $_GET['imageid'];
-	$sql = "INSERT INTO `tbl_comment` (`user_id`, `comment`, `image_id`) VALUES (?, ?, ?)";
+	$sql = "INSERT INTO `comments` (`user_id`, `comment`, `image_id`) VALUES (?, ?, ?)";
 	$stmt= $pdo->prepare($sql);
 	$stmt->execute([$user, $text, $imageid]);
 	$email = ft_image_owner_email($pdo, $imageid);
