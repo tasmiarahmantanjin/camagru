@@ -58,7 +58,8 @@ The goal of this project was to have practice with:
 </details>
 <br>
 
-### 🚀 Getting started
+## 🚀 Getting started
+
 <br>
 
 * You will need to have a local webserver on your machine, for example install [mamp](https://bitnami.com/stack/mamp)
