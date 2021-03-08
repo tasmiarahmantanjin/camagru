@@ -15,7 +15,7 @@ $likes = $pdo->prepare("SELECT * FROM likes WHERE `image_id`=$id AND `user_id`=$
 $likes->execute();
 $row = $likes->fetch();
 
-$comments_query = $pdo->prepare("SELECT users.name AS name, tbl_comment.comment FROM `users` JOIN tbl_comment on tbl_comment.user_id = users.user_id WHERE tbl_comment.image_id =?");
+$comments_query = $pdo->prepare("SELECT users.name AS name, comments.comment FROM `users` JOIN comments on comments.user_id = users.user_id WHERE comments.image_id =?");
 $comments_query->execute([$id]);
 $totalComments = $comments_query->fetchAll();
 
@@ -79,7 +79,7 @@ $totalComments = $comments_query->fetchAll();
 										{
 											echo '<tbody>';
 												echo '<tr>';
-													echo '<td style="text-align: left;">'.'<a>'.$image['username'].'</a>'.'</td>';
+													echo '<td style="text-align: left;">'.'<a>'.$comment['name'].'</a>'.'</td>';
 													echo '<td style="text-align: left">'.htmlentities($comment['comment']).'</td>';
 												echo '</tr>';
 											echo '</tbody>';
