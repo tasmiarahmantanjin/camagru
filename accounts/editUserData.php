@@ -6,7 +6,7 @@ session_start();
 include 'editUserDataValidation.php';
 require_once '../config/db_connection.php';
 
-// if user log in successfully 
+// if user log in successfully
 if ($_SESSION['user'] != NULL) {
 	$errors = [];
 	$messages = [];
@@ -18,7 +18,6 @@ if ($_SESSION['user'] != NULL) {
 	$stmt->execute([$user]);
 	$rows = $stmt->fetchAll();
 }
-
 
 // Keep everything is a key as value with foreach loop
 foreach ($rows as $row)
@@ -39,21 +38,17 @@ if ($pdo) {
 			$notificationEmail = $_POST['notificationEmail'];
 		}
 
-
-		// Validate the input data's from the update form
+		// Validate the input data from the update form
 		if (username_validation($_POST['username']) && email_validation($_POST['email'])) {
 			if ($dbpassword == $password) {
 				include '../config/db_connection.php';
 
-				// $query = "UPDATE `users` SET username= ?, email = ? WHERE username= ?"; // working version without notificationEmail
-				$query = "UPDATE `users` SET username= ?, email = ?, notificationEmail= ? WHERE username= ?"; // test version with notificationEmail
+				$query = "UPDATE `users` SET username= ?, email = ?, notificationEmail= ? WHERE username= ?";
 
 				// $query = "UPDATE `users` SET username=?, email=?, WHERE username=?";
 				$stmt = $pdo->prepare($query);
 
-				// $stmt->execute([$username]);
-				// $stmt->execute([$newUserName, $newEmail, $dbusername]);	// working version without notificationEmail
-				$stmt->execute([$newUserName, $newEmail, $notificationEmail, $dbusername]);		// test version with notificationEmail
+				$stmt->execute([$newUserName, $newEmail, $notificationEmail, $dbusername]);
 				// print_r($stmt);
 				array_push($messages, "Your information has been updated successfully!");
 			} else
@@ -64,7 +59,6 @@ if ($pdo) {
 	}
 }
 ?>
-
 
 <!-- HTML CODE STARTS HERE -->
 <!DOCTYPE html>
@@ -162,7 +156,6 @@ if ($pdo) {
 					?>
 					<!-- Change Password Field -->
 					<div class="col-md-14 text-right">
-						<!-- <a href="user/forgotPassword.php" class="text-dark">Forgot Password</a> -->
 						<a href="updatePassword.php" class="btn btn-light btn-block">Change Password</a>
 					</div>
 				</form>

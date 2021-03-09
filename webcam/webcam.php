@@ -52,7 +52,6 @@ if (isset($_POST['cpt_1']) && $_POST['cpt_1'] != "" && isset($_POST['alpha']))
 
 	// reloading the same page is $_SERVER['PHP_SELF']
 	header('Location: '.$_SERVER['PHP_SELF']);
-
 	die;
 }
 
@@ -225,6 +224,5 @@ if ($_SESSION['user'] != NULL){?>
 else
 {
 	header('Location: ../index.php');
-
 }
 ?>

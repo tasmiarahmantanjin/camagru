@@ -1,5 +1,4 @@
 <?php
-//require 'config.php';
 require '../config/db_connection.php';
 
 
@@ -32,7 +31,6 @@ if (isset($_POST['submit']))
 					'user_id' => $user['user_id']
 				);
 				$_SESSION['user'] = $user;
-				// header('location: welcome.php');
 				header('location: ../gallery/gallery.php');
 				// print_r($_SESSION['user']) ;
 				die();
@@ -88,15 +86,11 @@ if (isset($_POST['submit']))
 <!-- REGISTER HERE FIELD -->
 							<div id="register-link" class="row">
 								<div class="col-md-8 text-left">
-									<!-- <a href="register.php" class="text-dark">Register here</a> -->
 									<a href="register.php" class="btn btn-light btn-block">Don't have an account? Sign up</a>
 								</div>
 <!-- "FORGOT PASSWORD" FIELD -->
 								<div class="col-md-4 text-right">
-									<!-- <a href="user/forgotPassword.php" class="text-dark">Forgot Password</a> -->
-									<!-- <a href="forgotPassword.php" class="btn btn-light btn-block">Forgot password?</a> -->
 									<a href="forgotPassword.php" class="btn btn-light btn-block">Forgot password?</a>
-
 								</div>
 
 							</div>

@@ -1,5 +1,4 @@
 <?php
-// require_once '../admin/resetPassword.php';
 require_once 'resetPasswordEmail.php';
 ?>
 

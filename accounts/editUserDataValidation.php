@@ -33,28 +33,6 @@ function email_validation($email)
 	return ($count);
 }
 
-// Function to check if Password is valid
-
-// function password_validation ($password, $min_len = 6, $max_len = 70, $req_digit = 1, $req_upper = 1)
-// {
-// 	$count = 0;
-// 	// Build regex string depending on requirements for the password
-// 	$regex = '/^';
-// 	if ($req_digit == 1){ $regex .= '(?=.*\d)'; }              // Match at least 1 digit
-// 	if ($req_upper == 1) { $regex .= '(?=.*[A-Z])'; }           // Match at least 1 uppercase letter
-// 	$regex .= '.{' . $min_len . ',' . $max_len . '}$/';
-
-// 	if(preg_match($regex, $password))
-// 	{
-// 		$count = 1;
-// 	}
-// 	else
-// 	{
-// 		array_push($errors, "Password should contain at least 6 characters, at least one upper case letter & one number.");
-// 	}
-// 	return ($count);
-// }
-
 function password_validation($password, $confirm_password)
 {
 	$count = 0;
@@ -80,5 +58,4 @@ function password_validation($password, $confirm_password)
 	}
 	return ($count);
 }
-
 ?>

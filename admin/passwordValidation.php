@@ -29,6 +29,5 @@ function passwordValidation($new_password, $confirm_password)
 	{
 		array_push($errors, "Password mismatch");
 	}
-
 }
 ?>

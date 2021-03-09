@@ -1,15 +1,12 @@
 <?php
-
 // Function for user registration verification
 function sendSignUpVerificationEmail($email, $token)
 {
-    $body = '
-        Thanks for registration in my app
-        Please click the following link to complete your registration process:
+    $body = ' Thanks for registration in my app. Please click the following link to complete your registration process:
 	  http://localhost:8080/my_camagru/admin/varifyEmails.php?token=' . $token . '';
 
     $headers = "From: Admin\r\n";
-    // Send the eamil
+    // Send the email
 	if (mail($email, "Verify your email", $body, $headers))
 	{
         echo '<script type="text/JavaScript">
@@ -51,5 +48,4 @@ function commentEmail($userEmail, $imageId)
         echo "Message Error";
     }
 }
-
 ?>

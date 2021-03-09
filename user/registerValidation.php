@@ -1,6 +1,5 @@
 <?php
 // This Function validate all the user input related to login system
-// require_once 'signup.php';
 // https://magemastery.net/courses/user-registration-with-php-mysql/form-validation
 
 $validInput = 0;
@@ -18,7 +17,6 @@ if ($data['fullname'] != "" && $data['username'] != "" && $data['email'] != "" &
 		{
 			$var_name = trim($data['fullname']);
 			++$validInput;
-			// $validInput = 1;
 		}
 		else
 		{
@@ -39,7 +37,6 @@ if ($data['fullname'] != "" && $data['username'] != "" && $data['email'] != "" &
 			{
 				$var_user = $data['username'];
 				++$validInput;
-				// $validInput = 1;
 			}
 		}
 		else
@@ -55,7 +52,6 @@ if ($data['fullname'] != "" && $data['username'] != "" && $data['email'] != "" &
 		{
 			$var_email = $data['email'];
 			++$validInput;
-			// $validInput = 1;
 		}
 		else
 		{
@@ -80,7 +76,6 @@ if ($data['fullname'] != "" && $data['username'] != "" && $data['email'] != "" &
 			{
 				$var_password = $data['password'];
 				++$validInput;
-				// $validInput = 1;
 			}
 			else
 			{
@@ -94,5 +89,4 @@ if ($data['fullname'] != "" && $data['username'] != "" && $data['email'] != "" &
 	{
 		array_push($errors, "Please make sure both passwords match.");
 	}
-
 }

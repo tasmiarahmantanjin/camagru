@@ -24,8 +24,6 @@ if ($_SESSION['user'] != NULL)
 		// store the array value as key inside $row 
 		foreach ($rows as $row)
 		{
-			// $username = $row['username'];
-			// $email = $row['email'];
 			$dbUsername = $row['username'];
 			$dbEmail = $row['email'];
 			$password = $row['password'];
