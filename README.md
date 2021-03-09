@@ -67,7 +67,7 @@ The goal of this project was to have practice with:
 
 ## ✌ Found a bug? Missing a specific feature?
 
-Feel free to file a new issue with a respective title and description on the repository.
+* Feel free to file a new issue with a respective title and description on the repository.
 
 ## 🙋‍♀️ Authors
 
