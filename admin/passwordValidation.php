@@ -8,7 +8,6 @@ $errors = [];
 // Function to validate & secure the password
 function passwordValidation($new_password, $confirm_password)
 {
-	// echo 'Test 3';
 	if($new_password == $confirm_password)
 	{
 		$uppercase = preg_match('@[A-Z]@', $new_password);
