@@ -36,4 +36,3 @@ if ($_POST['submit'] == "Comment")
 	header("Location: like.php?imageid=$imageid");
 	exit();
 }
-
