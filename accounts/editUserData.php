@@ -45,7 +45,6 @@ if ($pdo) {
 
 				$query = "UPDATE `users` SET username= ?, email = ?, notificationEmail= ? WHERE username= ?";
 
-				// $query = "UPDATE `users` SET username=?, email=?, WHERE username=?";
 				$stmt = $pdo->prepare($query);
 
 				$stmt->execute([$newUserName, $newEmail, $notificationEmail, $dbusername]);
