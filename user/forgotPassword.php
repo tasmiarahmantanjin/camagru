@@ -92,4 +92,4 @@ include('../admin/resetPasswordEmail.php');
     </div>
   </div>
   <?php include 'includes/footer.php'; ?>
-</body </html>
+</body
