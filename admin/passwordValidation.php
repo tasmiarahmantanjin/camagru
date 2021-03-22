@@ -10,9 +10,9 @@ function passwordValidation($new_password, $confirm_password)
 {
 	if($new_password == $confirm_password)
 	{
-		$uppercase = preg_match('@[A-Z]@', $new_password);
-		$lowercase = preg_match('@[a-z]@', $new_password);
-		$number   	= preg_match('@[0-9]@', $new_password);
+		$uppercase	= preg_match('@[A-Z]@', $new_password);
+		$lowercase	= preg_match('@[a-z]@', $new_password);
+		$number		= preg_match('@[0-9]@', $new_password);
 
 		if(!$uppercase || !$lowercase || !$number ||  strlen($new_password) < 6)
 		{
