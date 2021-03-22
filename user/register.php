@@ -103,8 +103,8 @@ if (isset($_POST["submit"]))
 							</div>
 
 							<div class="form-group">
-                                <input type="submit" name="submit" class="btn btn-dark btn-md" value="Submit">
-                            </div>
+								<input type="submit" name="submit" class="btn btn-dark btn-md" value="Submit">
+							</div>
 
 							<?php if (count($errors) > 0)
 							{
@@ -123,7 +123,7 @@ if (isset($_POST["submit"]))
 							?>
 
 							<div class="col-md-14 text-right">
-                   					<a href="login.php" class="btn btn-light btn-block">Already Have an account? Log in</a>
+								<a href="login.php" class="btn btn-light btn-block">Already Have an account? Log in</a>
 							</div>
 
 						</form>
