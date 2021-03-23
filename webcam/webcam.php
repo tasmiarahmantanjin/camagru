@@ -142,7 +142,7 @@ if ($_SESSION['user'] != NULL){?>
 
 							<div class="camera">
 								<video id="video">Video stream not available.</video>
-								<button class="btn btn-dark" id="startbutton">Capture</button>
+								<button class="btn btn-dark" id="startButton">Capture</button>
 							</div>
 
 						</div>
