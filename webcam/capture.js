@@ -17,13 +17,13 @@
 	var video = null;
 	var canvas = null;
 	var photo = null;
-	var startbutton = null;
+	var startButton = null;
 
 	function startup() {
 		video = document.getElementById("video");
 		canvas = document.getElementById("canvas");
 		photo = document.getElementById("photo");
-		startbutton = document.getElementById("startbutton");
+		startButton = document.getElementById("startButton");
 
 		navigator.mediaDevices
 			.getUserMedia({ video: true, audio: false })
@@ -58,22 +58,22 @@
 			false
 		);
 
-		startbutton.addEventListener(
+		startButton.addEventListener(
 			"click",
 			function (ev) {
-				takepicture();
+				takePicture();
 				ev.preventDefault();
 			},
 			false
 		);
 
-		clearphoto();
+		clearPhoto();
 	}
 
 	// Fill the photo with an indication that none has been
 	// captured.
 
-	function clearphoto() {
+	function clearPhoto() {
 		var context = canvas.getContext("2d");
 		context.fillStyle = "#AAA";
 		context.fillRect(0, 0, canvas.width, canvas.height);
@@ -88,7 +88,7 @@
 	// drawing that to the screen, we can change its size and/or apply
 	// other changes before drawing it.
 
-	function takepicture() {
+	function takePicture() {
 		var context = canvas.getContext("2d");
 		if (width && height) {
 			canvas.width = width;
@@ -101,7 +101,7 @@
 			// Newly added line
 			document.getElementById("cpt_1").value = data;
 		} else {
-			clearphoto();
+			clearPhoto();
 		}
 	}
 
