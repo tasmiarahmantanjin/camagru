@@ -40,14 +40,8 @@
 			function (ev) {
 				if (!streaming) {
 					//height = video.videoHeight / (video.videoWidth/width);
-
 					// Firefox currently has a bug where the height can't be read from
 					// the video, so we will make assumptions if this happens.
-
-					/*if (isNaN(height)) {
-					  height = width / (4/3);
-					}*/
-
 					video.setAttribute("width", width);
 					video.setAttribute("height", height);
 					canvas.setAttribute("width", width);
@@ -70,9 +64,7 @@
 		clearPhoto();
 	}
 
-	// Fill the photo with an indication that none has been
-	// captured.
-
+	// Fill the photo with an indication that none has been captured.
 	function clearPhoto() {
 		var context = canvas.getContext("2d");
 		context.fillStyle = "#AAA";
@@ -98,14 +90,12 @@
 			var data = canvas.toDataURL("image/png");
 			console.log(height);
 			photo.setAttribute("src", data);
-			// Newly added line
 			document.getElementById("cpt_1").value = data;
 		} else {
 			clearPhoto();
 		}
 	}
 
-	// Set up our event listener to run the startup process
-	// once loading is complete.
+	// Set up our event listener to run the startup process once loading is complete.
 	window.addEventListener("load", startup, false);
 })();
